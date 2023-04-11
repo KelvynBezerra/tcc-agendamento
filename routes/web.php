@@ -29,6 +29,5 @@ Route::get('/homeCliente', [PacienteController::class, 'homeClienteView']);
 |
 */
 
-Route::get('/', function () {
-    return view('loginView');
-});
+Route::get('/',[PacienteController::class, 'loginView']);
+
