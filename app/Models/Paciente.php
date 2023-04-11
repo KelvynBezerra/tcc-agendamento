@@ -9,4 +9,5 @@ class Paciente extends Model
 {
     use HasFactory;
     protected $table="paciente";
+    public $timestamps = false;
 }

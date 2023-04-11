@@ -9,4 +9,5 @@ class ADM extends Model
 {
     use HasFactory;
     protected $table="adm";
+    public $timestamps = false;
 }

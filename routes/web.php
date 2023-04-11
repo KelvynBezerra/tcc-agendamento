@@ -1,16 +1,19 @@
 <?php
 
-use App\Http\Controllers\Paciente;
+use App\Http\Controllers\PacienteController;
+use App\Models\Paciente;
 use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/login',[Paciente::class, 'loginView']);
-Route::get('/cadastro',[Paciente::class, 'cadastroView']);
+Route::get('/login',[PacienteController::class, 'loginView']);
+Route::get('/cadastro',[PacienteController::class, 'cadastroView']);
 
-Route::get('/horario',[Paciente::class, 'horarioView']);
-Route::get('/agendamento',[Paciente::class, 'agendamentoView']);
-Route::get('/homeCliente', [Paciente::class, 'homeClienteView']);
+Route::get('/horario',[PacienteController::class, 'horarioView']);
+Route::get('/agendamento',[PacienteController::class, 'agendamentoView']);
+Route::get('/homeCliente', [PacienteController::class, 'homeClienteView']);
+
+
 
 
 
@@ -27,5 +30,5 @@ Route::get('/homeCliente', [Paciente::class, 'homeClienteView']);
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('loginView');
 });

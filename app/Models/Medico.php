@@ -9,4 +9,5 @@ class Medico extends Model
 {
     use HasFactory;
     protected $table="medico";
+    public $timestamps = false;
 }

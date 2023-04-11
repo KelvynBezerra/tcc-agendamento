@@ -4,30 +4,32 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Paciente extends Controller
+class PacienteController extends Controller
 {
     public function horarioView()
     {
-        return view('paciente/agendamento-horario');
+        return view('agendamento-horario');
     }
 
     public function agendamentoView()
     {
-        return view('paciente/agendamento');
+        return view('agendamento');
     }
 
     public function homeClienteView()
     {
-        return view('paciente/home-cliente');
+        return view('home-cliente');
     }
 
     public function loginView()
     {
-        return view('login/login');
+        return view('login');
     }
 
     public function cadastroView()
     {
-        return view('login/cadastro');
+        return view('cadastro');
     }
+
+    
 }

@@ -9,4 +9,5 @@ class Consulta extends Model
 {
     use HasFactory;
     protected $table="consulta";
+    public $timestamps = false;
 }
