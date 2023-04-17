@@ -1,4 +1,5 @@
-<h1>Olá, {{ session('usuario')->Paciente()}}</h1>
+<h1>Home Cliente</h1>
+{{-- <h1>Olá, {{ session('usuario')->Paciente()}}</h1> --}}
 
 {{-- use App\Models\Paciente;
  
