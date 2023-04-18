@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Login extends Model
@@ -12,9 +13,9 @@ class Login extends Model
     protected $table="login";
     public $timestamps = false;
 
-    public function Paciente(): HasOne
+    public function pacientes(): HasMany
     {
-        return $this->HasOne(Paciente::class);
+        return $this->hasMany(Paciente::class, 'login_id');
     }
 
 }

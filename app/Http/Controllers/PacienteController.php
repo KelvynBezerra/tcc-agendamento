@@ -39,6 +39,7 @@ class PacienteController extends Controller
         $login=$request->input('loginUser');
         $senha=$request->input('senhaUser');
         $usuario = Login::where('login', '=', $login)->where('senha', '=', $senha)->first();
+        dd(session('usuario')->pacientes);
 
         if($usuario==null){
             exit('Usuário não encontrado, confira o login e a senha e tente novamente');
