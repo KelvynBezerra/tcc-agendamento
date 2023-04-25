@@ -1,0 +1,80 @@
+CREATE TABLE login(
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+cpf VARCHAR(11) NOT NULL,
+login VARCHAR(32) NOT NULL,
+senha VARCHAR(32) NOT NULL
+);
+
+
+CREATE TABLE paciente(
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+id_login INT NOT NULL,
+id_endereco INT NOT NULL,
+id_contato INT NOT NULL,
+nome VARCHAR(64) NOT NULL,
+FOREIGN KEY(id_login) REFERENCES login(id),
+FOREIGN KEY(id_endereco) REFERENCES endereco(id),
+FOREIGN KEY(id_contato) REFERENCES contato(id)
+);
+
+CREATE TABLE medico(
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+id_login INT NOT NULL,
+id_especialidade INT NOT NULL,
+nome VARCHAR(64) NOT NULL,
+FOREIGN KEY(id_login) REFERENCES login(id),
+FOREIGN KEY(id_especialidade) REFERENCES especialidades(id)
+);
+
+CREATE TABLE especialidades(
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+nome VARCHAR(64) NOT NULL
+);
+
+CREATE TABLE endereco(
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+CEP INT(11) NOT NULL,
+pais VARCHAR(32) NOT NULL,
+UF VARCHAR(2) NOT NULL,
+cidade VARCHAR(32) NOT NULL,
+bairro VARCHAR(32) NOT NULL,
+logradouro VARCHAR(32) NOT NULL,
+numero VARCHAR(6) NOT NULL,
+complemento VARCHAR(64)
+);
+
+CREATE TABLE contato(
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+email VARCHAR(64) NOT NULL,
+celular_1 VARCHAR(18) NOT NULL,
+celular_2 VARCHAR(18)
+);
+
+CREATE TABLE agendamento(
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+ativa BOOL NOT NULL,
+data_hora DATETIME NOT NULL,
+id_paciente INT NOT NULL,
+id_medico INT NOT NULL,
+id_tipoAgendamento INT NOT NULL,
+FOREIGN KEY(id_paciente) REFERENCES paciente(id),
+FOREIGN KEY(id_medico) REFERENCES medico(id),
+FOREIGN KEY(id_tipoAgendamento) REFERENCES tipoAgendamento(id)
+);
+
+CREATE TABLE tipoAgendamento(
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+tipoAgendamento VARCHAR(64) NOT NULL
+);
+
+INSERT INTO login(cpf, login, senha) VALUES
+("12345678910", "erick", "senha");
+
+INSERT INTO endereco(CEP, pais, UF, cidade, bairro, logradouro, numero) VALUES
+("17522660", "pa1s", "SP", "c1dade", "ba1rro", "l0gradouro", "numer0"); 
+
+INSERT INTO contato(email, celular_1) VALUES
+("ema1l", "celul4r");
+
+INSERT INTO paciente(id_login, id_endereco, id_contato, nome) VALUES
+("1", "1", "1", "Erick Inamoto");
