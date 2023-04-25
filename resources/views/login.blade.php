@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+    <title>Login</t<<<<<<    <link rel="stylesheet" type="text/css" href="{{ asset('css/estilizacao.css') }}">
 </head>
 <body>
         <header>
-            
-        </header>
-        
+            <img src="https://logodownload.org/wp-content/uploads/2014/05/unimed-logo-1.png" class="imagem-logo" alt="">
+  </header>
+    
+
+       
         <div class="containerForm">
-        <form action="/login" method="post">
-            
+<<<<<<        <form action="/login" method="post">
+      
             <fieldset class="fieldsetLogin">
                 <br>
                 <label for="">Login</label> <br><br>
@@ -28,11 +29,13 @@
                 <span class="recuperacaoSenha"><a href="#">Esqueci a senha</a></span> <br>
 
                 <input type="submit" value="Entrar" class="enviar-login"> <br>
-                <span class="texto-cadastrar"> Não tem conta? <span><a href="cadastro.html">Cadastre-se</a></span></span>
+                <span class="texto-cadastrar"> Não tem conta? <span><a href="/cadastro">Cadastre-se</a></span></span>
 
                 <button type="submit">Login</button>
 
                 @csrf
+se</a></span></span>
+-se</a></span></span>
             </fieldset>
         
         </form>
