@@ -4,10 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 
 class Medico extends Model
 {
     use HasFactory;
     protected $table="medico";
     public $timestamps = false;
+
+    public function Consultas(): HasMany
+    {
+    return $this->hasMany(Consulta::class);
+    }
+
+    public function Paciente(): HasOneThrough
+    {
+        return $this->hasOneThrough(Paciente::class, Consulta::class);
+    }
 }

@@ -13,6 +13,7 @@ Route::get('/horario',[PacienteController::class, 'horarioView']);
 Route::get('/agendamento',[PacienteController::class, 'agendamentoView']);
 Route::get('/homeCliente', [PacienteController::class, 'homeClienteView']);
 
+Route::post('/login',[PacienteController::class, 'login']);
 
 
 
