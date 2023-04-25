@@ -15,7 +15,7 @@ class Login extends Model
 
     public function pacientes(): HasMany
     {
-        return $this->hasMany(Paciente::class, 'login_id');
+        return $this->hasMany(Paciente::class, 'id_login');
     }
 
 }
