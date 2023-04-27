@@ -41,12 +41,33 @@ class PacienteController extends Controller
         $cpf=$request->input('cpf');
         $senha=$request->input('senha');
         $email=$request->input('email');
+        $cep=$request->input('$cep');
+        $pais=$request->input('$pais');
+        $uf=$request->input('$uf');
+        $cidade=$request->input('$cidade');
+        $bairro=$request->input('$bairro');
+        $logradouro=$request->input('$logradouro');
+        $numero=$request->input('$numero');
+        $complemento=$request->input('$complemento');
+        $email=$request->input('$email');
+        $celular_1=$request->input('$celular_1');
+        $celular_2=$request->input('$celular_2');
 
         $paciente = new Paciente();
         $paciente->nome = $nome;
         $paciente->cpf = $cpf;
         $paciente->senha=$senha;
+        $paciente->cep=$cep;
+        $paciente->pais=$pais;
+        $paciente->uf=$uf;
+        $paciente->cidade=$cidade;
+        $paciente->bairro=$bairro;
+        $paciente->logradouro=$logradouro;
+        $paciente->numero=$numero;
+        $paciente->complemento=$complemento;
         $paciente->email=$email;
+        $paciente->celular_1=$celular_1;
+        $paciente->celular_2=$celular_2;
 
         $paciente->save();
 
