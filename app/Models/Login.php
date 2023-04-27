@@ -1,21 +1,22 @@
-<?php
+<!-- <?php
 
-namespace App\Models;
+// namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+// use Illuminate\Database\Eloquent\Factories\HasFactory;
+// use Illuminate\Database\Eloquent\Model;
+// use Illuminate\Database\Eloquent\Relations\HasMany;
+// use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Login extends Model
-{
-    use HasFactory;
-    protected $table="login";
-    public $timestamps = false;
+// class Login extends Model
+// {
+//     use HasFactory;
+//     protected $table="login";
+//     public $timestamps = false;
 
-    public function pacientes(): HasMany
-    {
-        return $this->hasMany(Paciente::class, 'id_login');
-    }
+//     public function pacientes(): HasMany
+//     {
+//         return $this->hasMany(Paciente::class, 'id_login');
+//     }
 
-}
+// }
+?> -->

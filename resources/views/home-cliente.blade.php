@@ -1,5 +1,5 @@
 <h1>Home Cliente</h1>
-<h1>Olá, {{ session('usuario')->pacientes->first()->nome}}</h1>
+<h1>Olá, {{ session('usuario')->nome}}</h1>
 
 
 {{-- <table>

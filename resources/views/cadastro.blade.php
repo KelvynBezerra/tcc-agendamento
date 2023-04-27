@@ -12,47 +12,47 @@
         <img src="https://logodownload.org/wp-content/uploads/2014/05/unimed-logo-1.png" class="imagem-logo" alt="">
     </header>
 <div class="containerForm">
-    <form action="">
+    <form action="/cadastro" method="post">
         <fieldset class="fieldsetCadastro">
             <h2>Cadastro Paciente</h2>
             <br>
             <label for="nomeCadastro">Nome</label> <br>
-            <input type="text" required placeholder="Informe seu nome completo" id="nomeCadastro" name="nomeCadastro" class="inputsCadastro">
+            <input type="text"   placeholder="Informe seu nome completo" id="nomeCadastro" name="nome" class="inputsCadastro">
             <br>
             <label for="cpfCadastro" >CPF</label>
             <label for="dataNascimentoCadastro" class="inputDataNasc">Data de Nascimento</label>  <br>
-            <input type="text" required placeholder="Informe seu CPF" id="cpfCadastro" name="cpfCadastro"  class="inputsCadastro">
-            <input type="date" class="inputDataNascimento">
+            <input type="text"   placeholder="Informe seu CPF" id="cpfCadastro" name="cpf"  class="inputsCadastro">
+            {{-- <input type="date" class="inputDataNascimento"> --}}
             <br>
             <label for="emailCadastro">E-mail</label>
             <label for="senhaCadastro" id="senhaCadastro"><span class="spanSenha"> Senha</span></label> <br>
         
             
-            <input type="email" required placeholder="Informe seu E-mail" id="emailCadastro" name="emailCadastro" class="inputsCadastro">   
-            <input type="password" required placeholder="Informe sua senha" id="senhaCadastro" name="senhaCadastro" class="inputSenha">
+            <input type="email"   placeholder="Informe seu E-mail" id="emailCadastro" name="email" class="inputsCadastro">   
+            <input type="password"   placeholder="Informe sua senha" id="senhaCadastro" name="senha" class="inputSenha">
             
             
-            <br><br>
+            {{-- <br><br>
             <label for="celularCadastro">Celular</label> <br>
-            <input type="text" required placeholder="" id="celularCadastro" name="celularCadastro" class="inputDDD">
-            <input type="number" required placeholder="Informe seu Telefone" id="celularCadastro" name="celularCadastro" class="inputsCadastro">
+            <input type="text"   placeholder="" id="celularCadastro" name="celularCadastro" class="inputDDD">
+            <input type="number"   placeholder="Informe seu Telefone" id="celularCadastro" name="celularCadastro" class="inputsCadastro">
            <br> 
             <label for="cepCadastro">CEP</label> <br>
-            <input type="text" required placeholder="Informe o CEP de sua residência" id="cepCadastro" name="cepCadastro" class="">
+            <input type="text"   placeholder="Informe o CEP de sua residência" id="cepCadastro" name="cepCadastro" class="">
             <br>
             <label for="logradouroCadastro">Logradouro</label>
             <label for="numeroCadastro" class="textoNumeroCadastro">Número</label>
             <br>
-            <input type="text" required placeholder="Informe o Logradouro de sua residência" id="logradouroCadastro" name="logradouroCadastro" class="inputLogradouro">
-            <input type="number" required placeholder="" id="numeroCadastro" name="numeroCadastro" class="numeroCadastro"> <br>
+            <input type="text"   placeholder="Informe o Logradouro de sua residência" id="logradouroCadastro" name="logradouroCadastro" class="inputLogradouro">
+            <input type="number"   placeholder="" id="numeroCadastro" name="numeroCadastro" class="numeroCadastro"> <br>
             <label for="bairroCadastro">Bairro</label>
             <label for="complementoCadastro" class="complementoCadastroTexto">Complemento</label> <br>
-            <input type="text" required placeholder="Informe o bairro de sua residência" id="bairroCadastro" name="bairroCadastro" class="inputBairro">
+            <input type="text"   placeholder="Informe o bairro de sua residência" id="bairroCadastro" name="bairroCadastro" class="inputBairro">
             <input type="text" placeholder="" id="complementoCadastro" name="complementoCadastro" class="inputDataNascimento">
             <br>
             <label for="cidadeCadastro">Cidade</label>
             <label for="estadoCadastro" class="complementoCadastroTexto">Estado</label> <br>
-            <input type="text" required placeholder="Informe a cidade de sua residência" id="cidadeCadastro" name="cidadeCadastro" class="inputBairro">
+            <input type="text"   placeholder="Informe a cidade de sua residência" id="cidadeCadastro" name="cidadeCadastro" class="inputBairro">
             <select name="estadoCadastro" id="estadoCadastro" class="inputSelectEstado">
                 <option value="" class="inputDataNascimento">Selecione</option>
                 <option value="AC">AC</option>
@@ -82,7 +82,9 @@
                 <option value="SP">SP</option>
                 <option value="SE">SE</option>
                 <option value="TO">TO</option>
-            </select>
+            </select> --}}
+            <button type="submit">Enviar </button>
+            @csrf
         </fieldset>
     </form>
 </div>

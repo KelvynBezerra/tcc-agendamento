@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Login;
 use App\Models\Medico;
+use App\Models\Paciente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -34,12 +35,30 @@ class PacienteController extends Controller
         return view('cadastro');
     }
 
+    public function cadastrar(Request $request)
+    {
+        $nome=$request->input('nome');
+        $cpf=$request->input('cpf');
+        $senha=$request->input('senha');
+        $email=$request->input('email');
+
+        $paciente = new Paciente();
+        $paciente->nome = $nome;
+        $paciente->cpf = $cpf;
+        $paciente->senha=$senha;
+        $paciente->email=$email;
+
+        $paciente->save();
+
+        return redirect('/login');
+        
+    }
+
     public function login(Request $request)
     {
-        $login=$request->input('loginUser');
-        $senha=$request->input('senhaUser');
-        $usuario = Login::where('login', '=', $login)->where('senha', '=', $senha)->first();
-        session('usuario')->pacientes->first()->id;
+        $cpf=$request->input('cpf');
+        $senha=$request->input('senha');
+        $usuario = Paciente::where('cpf', '=', $cpf)->where('senha', '=', $senha)->first();
 
         if($usuario==null){
             exit('Usuário não encontrado, confira o login e a senha e tente novamente');

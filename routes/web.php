@@ -14,6 +14,7 @@ Route::get('/agendamento',[PacienteController::class, 'agendamentoView']);
 Route::get('/homeCliente', [PacienteController::class, 'homeClienteView']);
 
 Route::post('/login',[PacienteController::class, 'login']);
+Route::post('/cadastro',[PacienteController::class, 'cadastrar']);
 
 
 

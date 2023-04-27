@@ -21,10 +21,10 @@
                 <label for="">Login</label> <br><br>
 
                 <label for="loginUser">Usuário</label> <br>
-                <input type="text" name="loginUser" id="loginUser" required placeholder="Informe seu Login"> <br>
+                <input type="text" name="cpf" id="loginUser" required placeholder="Informe seu Login"> <br>
 
                 <label for="senhaUser">Senha:</label> <br>
-                <input type="password" name="senhaUser" id="senhaUser" required placeholder="Informe sua Senha"> <br>
+                <input type="password" name="senha" id="senhaUser" required placeholder="Informe sua Senha"> <br>
 
                 <span class="recuperacaoSenha"><a href="#">Esqueci a senha</a></span> <br>
 

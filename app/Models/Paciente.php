@@ -25,10 +25,10 @@ class Paciente extends Model
         return $this->hasOneThrough(Medico::class, Consulta::class);
     }
 
-    public function login():BelongsTo
-    {
-        return $this->belongsTo(Login::class, 'id_login');
-    }
+    // public function login():BelongsTo
+    // {
+    //     return $this->belongsTo(Login::class, 'id_login');
+    // }
 
 }
 
