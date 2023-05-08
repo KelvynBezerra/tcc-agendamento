@@ -1,112 +1,171 @@
-<?php
-
-
-?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/estilizacao.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Página</title>
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/flex-style.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/flex.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
-<body class="bg-light">
-            
-            <img src="https://logodownload.org/wp-content/uploads/2014/05/unimed-logo-1.png" class="imagem-logo" alt="">
-        
+
+<body>
+  <header class="flex-row content-vcenter content-space-between space-20 box">
+
+    <img src="/imagens/menu-ico.png" class="" id="toggle" alt="" onclick="expand()">
+    <span style="cursor: default;">TCC</span>
+
+    <img src="/imagens/person-ico.png" alt="">
+
+
+  </header>
+  <!--
+  <div class="flex-row content-space-between space-20 box">
+
     
+    <div class="">
+      <img src="/imagens/menu-ico.png" class="" id="toggle" alt="" onclick="expand()">
+    </div>
+    <div class="   " style="display: flex;">
+      
+    </div>
+    <div class=" flex-row   gap-10">
+      
+    </div>
+  </div>
 
-       
-        <div class="row bg-light fixed-top">
-            <div class="col-sm-0 px-lg-3 ">
+-->
 
-            </div>
-            <div class="col-sm-2 p-md-3 border bg-light align-middle mt-5 bg-primary" >
-                <div class="alinhaTextoHomePage">
-                    <div class="foto">
-                         Foto
-                    </div>                    
-                </div>
-                <div class="row">
-                        <div class="col-sm-0 px-lg-3 "></div>
-                    <div class="alinhaDadosPaciente">
-                    
-                        
-                        <div class="col-2 mt-3 ml-5 align-middle"><span> Nome: CPF:</span></div>
-                              
-                    </div>    
-                        
-                    
-                </div>
-                <div class="aaaa">
-                <div class="imagemPropaganda ">imagem propaganda site</div>   
-            </div>
-            </div> 
-            <div class="col-sm-1"></div>
-            
-            <div class="col-sm-3 mt-5  align-middle bg-light" >
-                <h2>Agendamento</h2>
-                <form action="">
-                    <select name="especialidade" id="especialidade">
-                        <option value="null-value">Escolha sua especialidade *</option>
-                        <option value="cardiologista">Cardiologista</option>
-                        <option value="ortopedista">Ortopedista</option>
-                    </select>
-                    <select name="especialidade" id="especialidade">
-                        <option value="null-value">Escolha seu médico * </p></option>
-                        <option value="nomeMarcos">Marcos Almeida</option>
-                        <option value="nomeRoberto">Roberto Freitas</option>
-                    </select>
-                    <button type="submit" class="btn btn-primary btn-lg">Próximo passo</button>
-                    <a href="homepaciente.html" class="btn btn-primary btn-lg">Voltar</a>
-                </form>
-                
-                
-            </div>
-                </div>
-                </div>
-                <div class="col-sm-3 mt-5  border border-dark align-middle bg-light ml-5" >
-                    <h2 class="align-middle">Minhas Consultas</h2>
-                    <div class="col-sm-4 align-middle" >
-                    
-                        <div class="col-sm-3 ">
-                            <div class="row">
-                                <div class="col-sm-4  mb-2" ><div class="blocoAzul"><center> aaaaaaaaaaaaa</center>
-                                <button class=" btn btn-primary btn-lg " id="mexerBotaoTeste">Reagendar</button>
-                                </div>
-                
-                                
-                                </div>
-                                <div class="col-sm-4  mb-2" ><div class="blocoAzul"><center> aaaaaaaaaaaaa</center>
-                                    <button class=" btn btn-primary btn-lg " id="mexerBotaoTeste">Reagendar</button>
-                                    </div>
-                                    
-                        </div>
-                        <div class="col-sm-4  mb-2" ><div class="blocoAzul"><center> aaaaaaaaaaaaa</center>
-                            <button class=" btn btn-primary btn-lg " id="mexerBotaoTeste">Reagendar</button>
-                            </div>
-                        
-                            
-                        
-                    </div>
-            
-                
-            
-            
-                
-                
-   
-</div>
+
+  <div class="flex-row content-space-between">
+
+    <div class="menu ">
+
+      <div class="items" id="items">
+        <a href=""></a>
+        <a href="consultas.html">
+
+          <span class="material-icons blue">query_stats</span>
+          <span class="selected-text ">CONSULTAS</span>
+
+        </a>
+
+        <a href="#">
+          <span class="material-icons">monitor_heart</span> <span class="text-menu">EXAMES</span>
+        </a>
+        <a href="#">
+          <span class="material-icons">personal_injury</span> <span class="text-menu">PACIENTES</span>
+        </a>
+        <a href="#">
+          <span class="material-icons">vaccines</span> <span class="text-menu">MÉDICOS</span>
+        </a>
+      </div>
+    </div>
+
+    <span class="text-Indicator space-40">Cadastro de Consulta</span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <div class="" style="margin-top: 40px;"></div>
+    <span></span>
 
 
 
 
-        <footer class="text-center fixed-bottom bg-light">
-      © 2023 Todos os direitos reservados
-    </footer>
+  </div>
+  <div class="flex-row space-40 content-space-between">
+    <div></div>
+    <div class="cadastrarConsulta space-30 content-vcenter ">
+      <span class="material-icons" style="margin-right: 10px;">vaccines</span>
+      <select name="especialidade" id="especialidade">
+        <option value="null-value">Especialidade</option>
+        <option value="psicologo">Psicólogo</option>
+        <option value="cardiologista">Cardiologista</option>
+        <option value="neurologista">Neurologista</option>
+        <option value="ortopedista">Ortopedista</option>
+      </select>
+      <span class="material-icons" onclick="">calendar_month</span>
+      <select name="data" id="data" >
+        <option value="nulo">Selecione a data</option>
+      </select>
+      
+    </div>
+    <div></div>
+
+  </div>
+  <footer class="flex-row content-center space-30 box" style="position:absolute; bottom: 0; width: 100%;">
+    <span>Etec Antonio Devisate</span>
+  </footer>
+  <script>
+    let min = 1;
+    const d = new Date();
+    let diaAtual = (d.getDay());
+    let month = d.getMonth() + 1;
+    let anoAtual = (d.getFullYear());
+    var state = false;
+
+    meses = ['', 'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+    dias = ['', '31', '28', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31'];
+
+    function expand() {
+      if (state == false) {
+        document.getElementById("items").style.transform = 'scaleX(1)';
+        /*document.getElementById("toggle").style.boxShadow = '1px 1px 1px gray';*/
+        state = true;
+      }
+      else {
+        document.getElementById("items").style.transform = 'scaleX(0)';
+        document.getElementById("toggle").style.boxShadow = 'none';
+        state = false;
+      }
+    }
+
+    let especialidade = document.getElementById('especialidade');
+    let value = especialidade.options[especialidade.selectedIndex].value;
+    let select = document.getElementById('data');
+
+
+    function teste() {
+      diasMesAtual = dias[month]
+      for (i = diaAtual; i <= diasMesAtual; i++) {
+
+        var opcao = document.createElement('option');
+        if ((i <= 9) && (month <= 9)) {
+          opcao.value = '0' + i.toString() + '/' + month.toString() + '/' + anoAtual;
+          opcao.innerHTML = '0' + i.toString() + '/' + '0' + month.toString() + '/' + anoAtual;
+        }
+        else {
+          if ((month > 9) && (i <= 9)) {
+            opcao.value = '0' + i.toString() + '/' + month.toString() + '/' + anoAtual;
+            opcao.innerHTML = '0' + i.toString() + '/' + month.toString() + '/' + anoAtual;
+          }
+          else {
+            if ((month > 9) && (i >= 9)) {
+              opcao.value = i.toString() + '/' + month.toString() + '/' + anoAtual;
+              opcao.innerHTML = i.toString() + '/' + month.toString() + '/' + anoAtual;
+            }
+            else {
+              if ((month <= 9) && (i >= 9)) {
+                opcao.value = i.toString() + '/' + '0' + month.toString() + '/' + anoAtual;
+                opcao.innerHTML = i.toString() + '/' + '0' + month.toString() + '/' + anoAtual;
+              }
+            }
+          }
+        }
+
+
+        select.appendChild(opcao);
+
+
+      }
+    }
+      teste();
+  </script>
 </body>
 
 </html>

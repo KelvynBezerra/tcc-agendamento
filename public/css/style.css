@@ -2,8 +2,18 @@
   --default-spacing: 0px;
 }
 
+body,
+html {
+  height: 100%;
+}
+
 .box {
   background-color: #F6F5F4;
+}
+
+header {
+  width: 100%;
+  /*position: fixed;*/
 }
 
 
@@ -27,7 +37,11 @@ a:hover>.text-menu {
 
 }
 
-
+a
+{
+  text-decoration: none;
+  color: white;
+}
 
 .toggle {
   background-color: #ECEAE9;
@@ -46,30 +60,32 @@ a:hover>.text-menu {
   font-size: 40px;
 }
 
-.menu {
-  position: relative;
-}
 
 .items {
   transform: scaleX(0);
   transform-origin: left;
   transition: 0.5s;
+  position: absolute;
+  height: 100%;
 }
 
 .items>a {
   display: flex;
   background-color: #fcf7f2;
-  height: 50px;
   width: 150px;
+  vertical-align: center;
+  padding: 10px;
   justify-content: LEFT;
   align-items: LEFT;
   text-decoration: none;
   color: #b2b2b2;
+
 }
 
 a>.material-icons {
-  font-size: 30px;
+  font-size: 20px;
   color: black;
+
 }
 
 a:hover>.material-icons {
@@ -81,11 +97,6 @@ a:hover>.material-icons {
   cursor: default;
 }
 
-.text-menu {
-  margin-left: 5px;
-  margin-top: 5px;
-
-}
 
 
 .text-menu:hover {
@@ -99,18 +110,11 @@ a:hover>.material-icons {
   background-color: #fcf7f2;
   box-shadow: 0px 0px 5px black;
   width: 300px;
-  height: 200px;
-  /*margin-left: 300px;
-  margin-top: -100px;*/
   color: black;
 
 
 }
 
-.alinhamento {
-  padding: 5px;
-  margin: 5px;
-}
 
 .break {
   flex-basis: 100%;
@@ -120,4 +124,33 @@ a:hover>.material-icons {
   margin-left: 35px;
   margin-top: -15px;
 
+}
+
+.agrupamentoCards {
+
+  max-width: 80%;
+
+
+}
+.cadastrarConsulta
+{
+  width: 70%;
+  background-color: red;
+  height: 150px;
+  border-radius: 20px;
+  background-color: #fcf7f2;
+  box-shadow: 0px 0px 5px black;
+  color: black;
+
+}
+#especialidade
+{
+  width: 200px;
+  text-align: start;
+}
+
+#data
+{
+  width: 200px;
+  text-align: start;
 }

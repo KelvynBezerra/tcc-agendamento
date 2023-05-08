@@ -12,7 +12,7 @@ logradouro VARCHAR(32),
 numero VARCHAR(6),
 complemento VARCHAR(64),
 email VARCHAR(64) NOT NULL,
-celular_1 VARCHAR(18),
+celular_1 VARCHAR(18) not null,
 celular_2 VARCHAR(18)
 );
 

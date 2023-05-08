@@ -31,8 +31,6 @@
                 <input type="submit" value="Entrar" class="enviar-login"> <br>
                 <span class="texto-cadastrar"> Não tem conta? <span><a href="/cadastro">Cadastre-se</a></span></span>
 
-                <button type="submit">Login</button>
-
                 @csrf
 
             </fieldset>
