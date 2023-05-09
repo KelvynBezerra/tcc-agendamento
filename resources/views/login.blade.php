@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>    <link rel="stylesheet" type="text/css" href="{{ asset('css/estilizacao.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/estilizacao.css') }}">
+    <title>Login</title>    
 </head>
 <body>
         <header>
@@ -30,6 +31,8 @@
 
                 <input type="submit" value="Entrar" class="enviar-login"> <br>
                 <span class="texto-cadastrar"> Não tem conta? <span><a href="/cadastro">Cadastre-se</a></span></span>
+
+                
 
                 @csrf
 
