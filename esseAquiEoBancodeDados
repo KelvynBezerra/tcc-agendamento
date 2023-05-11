@@ -1,56 +1,20 @@
-CREATE TABLE paciente(
-id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-nome VARCHAR(64) NOT NULL,
-cpf VARCHAR(11) NOT NULL,
-senha VARCHAR(32) NOT NULL,
-CEP INT(11),
-pais VARCHAR(32),
-UF VARCHAR(2),
-cidade VARCHAR(32),
-bairro VARCHAR(32),
-logradouro VARCHAR(32),
-numero VARCHAR(6),
-complemento VARCHAR(64),
-email VARCHAR(64) NOT NULL,
-celular_1 VARCHAR(18) not null,
-celular_2 VARCHAR(18)
-);
+<h1>Home Cliente</h1>
+<h1>Olá, {{ session('usuario')->nome}}</h1>
 
 
-CREATE TABLE medico(
-id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-nome VARCHAR(64) NOT NULL,
-especialidade VARCHAR(64) NOT NULL,
-CEP INT(11) NOT NULL,
-pais VARCHAR(32) NOT NULL,
-UF VARCHAR(2) NOT NULL,
-cidade VARCHAR(32) NOT NULL,
-bairro VARCHAR(32) NOT NULL,
-logradouro VARCHAR(32) NOT NULL,
-numero VARCHAR(6) NOT NULL,
-complemento VARCHAR(64),
-email VARCHAR(64) NOT NULL,
-celular_1 VARCHAR(18),
-celular_2 VARCHAR(18)
-);
+{{-- <table>
+    @foreach(session('usuario')->pacientes->first()->consultas as $consulta)
+        <tr>
+            Nome do médico: {{ $consulta->medico->nome }}
+            Horário da consulta {{ $consulta->diahora }}
+        </tr>
+    @endforeach
+</table> --}}
 
-CREATE TABLE agendamento(
-id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-ativa BOOL NOT NULL,
-data_hora DATETIME NOT NULL,
-id_paciente INT NOT NULL,
-id_medico INT NOT NULL,
-id_tipoAgendamento INT NOT NULL,
-FOREIGN KEY(id_paciente) REFERENCES paciente(id),
-FOREIGN KEY(id_medico) REFERENCES medico(id),
-FOREIGN KEY(id_tipoAgendamento) REFERENCES tipoAgendamento(id)
-);
-
-CREATE TABLE tipoAgendamento(
-id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-tipoAgendamento VARCHAR(64) NOT NULL
-);
-
-
-insert into paciente (nome, cpf, senha, cep, pais, uf, cidade , bairro, logradouro, numero, complemento, email, celular_1, celular_2) VALUES
-("Erick Inamoto", "12345678910", "senha", ("17522660", "pa1s", "SP", "c1dade", "ba1rro", "l0gradouro", "numer0", "", ("ema1l@email.com", "celul4r");
+{{-- use App\Models\Paciente;
+ 
+$HistConsultas = consultas::all();
+ 
+foreach ($HistConsultas as $consulta) {
+    echo $HistConsultas->consulta->data;
+} --}}
