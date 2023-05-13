@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use app\models\Endereco;
+use App\models\Endereco;
 use App\Models\Login;
 use App\Models\Medico;
 use App\Models\Paciente;

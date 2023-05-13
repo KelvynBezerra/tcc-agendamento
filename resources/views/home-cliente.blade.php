@@ -38,7 +38,7 @@
             <div class="break">{{$card->endereco}}</div>
           </div>
         </div>
-
+        @endforeach
         
 
 
