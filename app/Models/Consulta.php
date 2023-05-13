@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Consulta extends Model
 {
     use HasFactory;
-    protected $table="consulta";
+    protected $table="agendamento";
     public $timestamps = false;
 
     public function paciente(): BelongsTo

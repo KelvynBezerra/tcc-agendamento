@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use app\models\Endereco;
 use App\Models\Login;
 use App\Models\Medico;
 use App\Models\Paciente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+
 
 class PacienteController extends Controller
 {
@@ -18,11 +19,6 @@ class PacienteController extends Controller
     public function agendamentoView()
     {
         return view('agendamento');
-    }
-
-    public function homeClienteView()
-    {
-        return view('home-cliente');
     }
 
     public function loginView()
@@ -89,5 +85,17 @@ class PacienteController extends Controller
         return redirect('/homeCliente');
     }
 
-    
+    public function homeCliente()
+    {
+    $cards = Endereco::all();
+
+    return view('home-cliente', ['cards' => $cards]);
 }
+
+
+public function endereco(){
+   
+}
+}
+
+?>
