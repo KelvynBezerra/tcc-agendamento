@@ -2,9 +2,15 @@
   --default-spacing: 0px;
 }
 
+@font-face {
+  font-family: 'montserrat';
+  src: url(/fontes/Montserrat-VariableFont_wght.ttf);
+}
+
 body,
 html {
   height: 100%;
+  font-family: 'montserrat';
 }
 
 .box {
@@ -65,7 +71,7 @@ a
   transform: scaleX(0);
   transform-origin: left;
   transition: 0.5s;
-  position: absolute;
+  position: fixed;
   height: 100%;
 }
 
@@ -134,7 +140,6 @@ a:hover>.material-icons {
 }
 .cadastrarConsulta
 {
-  width: 70%;
   background-color: red;
   height: 150px;
   border-radius: 20px;
@@ -143,6 +148,13 @@ a:hover>.material-icons {
   color: black;
 
 }
+button
+{
+  width: 180px;
+}
+.link-btn{color: var(--terciario-bg-color);}
+.clique-aqui{color: red;text-decoration: underline;}
+.clique-aqui:hover{color: rgb(184, 0, 0); transition: 1s;}
 #especialidade
 {
   width: 200px;
@@ -154,3 +166,65 @@ a:hover>.material-icons {
   width: 200px;
   text-align: start;
 }
+
+.tabelaCadastro
+{
+  border-radius: 50px;
+  border-collapse: collapse; 
+  border-bottom: none;
+}
+td
+{
+  border: none;
+  border-color: red;
+}
+td>input
+{
+  border: 1px solid #cfcfcf;
+  letter-spacing: 1px;
+  font-style: italic;
+}
+.bodyCadastro
+{
+  background-image: url(/imagens/medico.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+
+}
+.fundo
+{
+  height: 100%;
+  background-color: white;
+  width: 25%;
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+
+}
+.logo
+{
+  width: 200px;
+  height: 100px;
+  position: fixed;
+
+}
+.botaoCadastro
+{
+  border-radius: 50px;
+  background-color: white;
+  font-size: 15px;
+  font-family: 'montserrat';
+    
+}
+.botaoCadastro:hover
+{
+  background-color: rgb(167,226,238);
+  background: linear-gradient(90deg, rgba(167,226,238,1) 17%, rgba(115,224,246,1) 60%);
+  box-shadow: 20px 20px 50px 10px rgb(115, 246, 218) inset;
+  transition: 0.5s;
+  
+}
+.btncadastro:hover
+{
+  background-color: white;
+} 
