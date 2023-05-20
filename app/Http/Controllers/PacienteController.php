@@ -11,11 +11,75 @@ use Illuminate\Support\Facades\Session;
 
 class PacienteController extends Controller
 {
-    public function horarioView()
+    public function horarioView(Request $form)
     {
-        return view('agendamento-horario');
+        $especialidades = Medico::select('especialidade')->distinct()->get()->pluck('especialidade');
+        $espSelecionada = $form->input('especialidades');
+        $medSelecionado = $form->input('medicos');
+        $diaSelecionado = $form->input('data');
+
+        $medicos = collect([]);
+        $datas = collect([]);
+        $horarios = collect([]);
+
+        if($espSelecionada != null){
+            $medicos = Medico::where('especialidade', 'like', $espSelecionada)->get();
+        }
+        if($medSelecionado != null ){
+            $datas = $this->obterDatasProximasQuatroSemanas();
+        }
+        if($diaSelecionado != null){
+            $horarios = $this-> obterHorarios();
+        }
+        
+        return view('agendamento-horario', [
+            'especialidades' => $especialidades,
+            'medicos' => $medicos,
+            'datas' => $datas,
+            'horarios' => $horarios,
+            'espSelecionada' => $espSelecionada,
+            'diaSelecionado' => $diaSelecionado,
+            'medSelecionado' => $medSelecionado,
+        ]);
+    }
+    function obterDatasProximasQuatroSemanas()
+    {
+        $datas = [];
+    
+        // Obtém a data atual
+        $dataAtual = now();
+    
+        // Itera pelas próximas 4 semanas
+        for ($i = 0; $i < 28; $i++) {
+            // Adiciona a data atual mais o número de semanas ao iterador
+            $data = $dataAtual->addDay(1);
+    
+            // Itera pelos dias da semana de segunda a sexta-feira (1 a 5)
+            for ($dia = 1; $dia <= 5; $dia++) {
+                // Verifica se o dia atual é uma segunda a sexta-feira
+                if ($data->dayOfWeek == $dia) {
+                    // Adiciona a data ao array
+                    $datas[] = $data->toDateString();
+                }
+            }
+        }
+    
+        return collect($datas); 
     }
 
+    public function obterHorarios(){
+        $horarios = [
+            '08:00', '08:30', '09:00',
+            '09:30', '10:00', '10:30',
+            '11:00', '11:30', '13:30',
+            '14:00', '14:30', '15:00',
+            '15:30', '16:00', '16:30',
+            '17:00', '17:30', '18:00',
+        ];
+        return collect($horarios);
+
+    }
+    
     public function agendamentoView()
     {
         return view('agendamento');
@@ -96,6 +160,5 @@ class PacienteController extends Controller
 public function endereco(){
    
 }
-}
 
-?>
+}
