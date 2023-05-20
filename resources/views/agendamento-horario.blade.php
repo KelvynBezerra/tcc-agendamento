@@ -13,7 +13,7 @@
   </div>
   <div class="flex-row space-40 content-space-between">
     
-    <form class="cadastrarConsulta space-30 content-vcenter">
+    <form class="cadastrarConsulta space-30 content-vcenter" >
       <span class="material-icons" style="margin-right: 10px;">vaccines</span>
       
       <select name="especialidades" id="especialidades" onchange="document.querySelector('form').submit()">
@@ -46,10 +46,15 @@
       <select name="horarios" onchange="document.querySelector('form').submit()">
         <option value="">Selecione um horario</option>
         @foreach($horarios as $hora)
-        <option value="{{ $hora }}"> {{$hora}}</option>
+        <option value="{{ $hora }}" @if($hora == $horaSelecionada) {{'selected'}} @endif> {{$hora}}</option>
         @endforeach
       </select>
       @endif
+
+      @if($horaSelecionada != null)
+      <button type="submit" onclick="document.querySelector('form').method='post'">Enviar</button>
+      @endif
+      @csrf
     </form>
     
 

@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Consulta;
 use App\models\Endereco;
 use App\Models\Login;
 use App\Models\Medico;
@@ -17,6 +19,7 @@ class PacienteController extends Controller
         $espSelecionada = $form->input('especialidades');
         $medSelecionado = $form->input('medicos');
         $diaSelecionado = $form->input('data');
+        $horaSelecionada = $form->input('horarios');
 
         $medicos = collect([]);
         $datas = collect([]);
@@ -40,8 +43,11 @@ class PacienteController extends Controller
             'espSelecionada' => $espSelecionada,
             'diaSelecionado' => $diaSelecionado,
             'medSelecionado' => $medSelecionado,
+            'horaSelecionada' => $horaSelecionada,
         ]);
     }
+    
+
     function obterDatasProximasQuatroSemanas()
     {
         $datas = [];
@@ -93,6 +99,25 @@ class PacienteController extends Controller
     public function cadastroView()
     {
         return view('cadastro');
+    }
+
+    function agendar(Request $request){
+        $medico = $request->input('medicos');
+        $data = $request->input('data');
+        $hora = $request->input('horarios');
+        
+
+        $consulta = new Consulta();
+        $consulta->ativa = 1;
+        $consulta->data_hora = "$data $hora";
+        $consulta->id_medico = $medico;
+        $consulta->id_tipoAgendamento = 1;
+
+        $consulta->id_paciente = session()->get("usuario")->id;
+        $consulta->save();
+        
+        return redirect('/homeCliente');
+
     }
 
     public function cadastrar(Request $request)
