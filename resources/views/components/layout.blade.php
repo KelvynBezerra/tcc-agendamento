@@ -72,7 +72,7 @@
   </script>
 
   <br>
-  <footer class="flex-row content-center space-30 box" style="position:fixed; bottom: 0; width: 100%;">
+  <footer class="flex-row content-center space-30 box" style="position:absolute; bottom: 0; width: 100%;">
     <span>Etec Antonio Devisate</span>
   </footer>
   
