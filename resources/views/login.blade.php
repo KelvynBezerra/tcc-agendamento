@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-    <link rel="stylesheet" href="flex.css">
-    <link rel="stylesheet" href="flex-style.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Página</title>
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/flex-style.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/flex.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+
+  <script src="/js/jquery.js"></script>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 <body class="bodyCadastro">
     
-    <img src="/imagens/logo-teste.png" class="logo" alt="">
+    <img src="/imagens/logo-teste.jpg" class="logo" alt="">
     <div class="fundo content-center">
-        
-       
-      
 
-
-
-       
-        <form action="">
+        <form action="/login" method="post">
             
             <table class="tabelaCadastro">
                 <tr>
@@ -35,9 +35,10 @@
 
                 <tr class="btncadastro">
                     <td><button type="submit" class="botaoCadastro">Entrar</button></td>
-                    <td><a href="cadastro.html" style="color: black; font-size: 13px; padding: none;">Não possui cadastro? <span style="color: red; text-decoration: underline;">Clique Aqui</span></a></td>
+                    <td><a href="/cadastro" style="color: black; font-size: 13px; padding: none;">Não possui cadastro? <span style="color: red; text-decoration: underline;">Clique Aqui</span></a></td>
                 </tr>
             </table>
+            @csrf
         </form>
 
 
