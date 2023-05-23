@@ -20,13 +20,8 @@
     <img src="/imagens/logo-teste.jpg" class="logo" alt="">
     <div class="fundo content-center">
         
-       
-      
 
-
-
-       
-        <form action="">
+        <form action="/cadastro" method="post">
             
             <table class="tabelaCadastro">
                 <tr>

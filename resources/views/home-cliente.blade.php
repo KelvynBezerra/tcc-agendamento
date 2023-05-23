@@ -4,7 +4,7 @@
     <span></span>
     <span></span>
     <span></span>
-        <div class="button primary " style="margin-top: 40px;"><a href="horario"> NOVA CONSULTA</a></div>
+        <a href="/horario"><div class="button primary " style="margin-top: 40px;"> NOVA CONSULTA</div></a>
     <span></span>
 
 
