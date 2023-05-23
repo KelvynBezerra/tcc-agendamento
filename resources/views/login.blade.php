@@ -1,48 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>    <link rel="stylesheet" type="text/css" href="{{ asset('css/estilizacao.css') }}">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Página</title>
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/flex-style.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/flex.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+
+  <script src="/js/jquery.js"></script>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
-<body>
-        <header>
-            <img src="https://logodownload.org/wp-content/uploads/2014/05/unimed-logo-1.png" class="imagem-logo" alt="">
-  </header>
+<body class="bodyCadastro">
     
+    <img src="/imagens/logo-teste.jpg" class="logo" alt="">
+    <div class="fundo content-center">
 
-       
-        <div class="containerForm">
         <form action="/login" method="post">
-      
-            <fieldset class="fieldsetLogin">
-                <br>
-                <label for="">Login</label> <br><br>
+            
+            <table class="tabelaCadastro">
+                <tr>
+                    <td><label for="cpf">CPF</label></td>
+                    <td><input type="text" name="cpf" id="cpf" placeholder="CPF para login" required></td>
+                </tr>
+                <tr>
+                    <td><label for="senha">Senha</label></td>
+                    <td><input type="password" name="senha" id="senha" placeholder="Senha de acesso" required></td>
+                </tr>
 
-                <label for="loginUser">Usuário</label> <br>
-                <input type="text" name="cpf" id="loginUser" required placeholder="Informe seu Login"> <br>
 
-                <label for="senhaUser">Senha:</label> <br>
-                <input type="password" name="senha" id="senhaUser" required placeholder="Informe sua Senha"> <br>
-
-                <span class="recuperacaoSenha"><a href="#">Esqueci a senha</a></span> <br>
-
-                <input type="submit" value="Entrar" class="enviar-login"> <br>
-                <span class="texto-cadastrar"> Não tem conta? <span><a href="/cadastro">Cadastre-se</a></span></span>
-
-                @csrf
-
-            </fieldset>
-        
+                <tr class="btncadastro">
+                    <td><button type="submit" class="botaoCadastro">Entrar</button></td>
+                    <td><a href="/cadastro" style="color: black; font-size: 13px; padding: none;">Não possui cadastro? <span style="color: red; text-decoration: underline;">Clique Aqui</span></a></td>
+                </tr>
+            </table>
+            @csrf
         </form>
-        </div>
-        <footer>
-            <div class="alinhaFooter">
-            Todos os direitos reservados © 2023
-            </div>
-        </footer>
-   
+
+
 </div>
+
 </body>
 </html>
