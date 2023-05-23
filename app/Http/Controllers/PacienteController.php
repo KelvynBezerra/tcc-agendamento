@@ -47,6 +47,77 @@ class PacienteController extends Controller
         ]);
     }
     
+    public function exameView(Request $form){
+
+$exameEspecialidades = Medico::select('especialidade')->distinct()->get()->pluck('especialidade');
+        $exameEspSelecionada = $form->input('especialidades');
+        $exameMedSelecionado = $form->input('medicos');
+        $exameDiaSelecionado = $form->input('data');
+        $exameHoraSelecionada = $form->input('horarios');
+
+        $exameMedicos = collect([]);
+        $exameDatas = collect([]);
+        $exameHorarios = collect([]);
+
+        if($exameEspSelecionada != null){
+            $exameMedicos = Medico::where('especialidade', 'like', $exameEspSelecionada)->get();
+        }
+        if($exameMedSelecionado != null ){
+            $exameDatas = $this->obterDatasProximasQuatroSemanas();
+        }
+        if($exameDiaSelecionado != null){
+            $exameHorarios = $this-> obterHorarios();
+        }
+        
+        return view('agendamento-exames', [
+            'especialidades' => $exameEspecialidades,
+            'medicos' => $exameMedicos,
+            'datas' => $exameDatas,
+            'horarios' => $exameHorarios,
+            'espSelecionada' => $exameEspSelecionada,
+            'diaSelecionado' => $exameDiaSelecionado,
+            'medSelecionado' => $exameMedSelecionado,
+            'horaSelecionada' => $exameHoraSelecionada,
+        ]);
+        return view('agendamento-exames');
+    }
+
+    function examinar(Request $request){
+        $exameMedico = $request->input('exameMedicos');
+        $exameData = $request->input('data');
+        $exameHora = $request->input('horarios');
+        
+
+        $exameConsulta = new Consulta();
+        $exameConsulta->ativa = 1;
+        $exameConsulta->data_hora = "$exameData $exameHora";
+        $exameConsulta->id_medico = $exameMedico;
+        $exameConsulta->id_tipoAgendamento = 2;
+
+        $exameConsulta->id_paciente = session()->get("usuario")->id;
+        $exameConsulta->save();
+        
+        return redirect('/homeCliente');
+    }
+
+    function agendar(Request $request){
+        $medico = $request->input('medicos');
+        $data = $request->input('data');
+        $hora = $request->input('horarios');
+        
+
+        $consulta = new Consulta();
+        $consulta->ativa = 1;
+        $consulta->data_hora = "$data $hora";
+        $consulta->id_medico = $medico;
+        $consulta->id_tipoAgendamento = 1;
+
+        $consulta->id_paciente = session()->get("usuario")->id;
+        $consulta->save();
+        
+        return redirect('/homeCliente');
+
+    }
 
     function obterDatasProximasQuatroSemanas()
     {
@@ -101,24 +172,12 @@ class PacienteController extends Controller
         return view('cadastro');
     }
 
-    function agendar(Request $request){
-        $medico = $request->input('medicos');
-        $data = $request->input('data');
-        $hora = $request->input('horarios');
-        
+   
 
-        $consulta = new Consulta();
-        $consulta->ativa = 1;
-        $consulta->data_hora = "$data $hora";
-        $consulta->id_medico = $medico;
-        $consulta->id_tipoAgendamento = 1;
 
-        $consulta->id_paciente = session()->get("usuario")->id;
-        $consulta->save();
-        
-        return redirect('/homeCliente');
 
-    }
+    
+    
 
     public function cadastrar(Request $request)
     {

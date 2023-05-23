@@ -1,6 +1,6 @@
 <x-layout>
 
-    <span class="text-Indicator space-40">Cadastro de Consulta</span>
+    <span class="text-Indicator space-40">Cadastro de Exames</span>
     <span></span>
     <span></span>
     <span></span>
@@ -16,7 +16,7 @@
     <form class="cadastrarConsulta space-30 content-vcenter" >
       <span class="material-icons" style="margin-right: 10px;">vaccines</span>
       
-      <select name="especialidades" id="especialidades" onchange="document.querySelector('form').submit()">
+      <select name="exameEspecialidades" id="especialidades" onchange="document.querySelector('form').submit()">
         <option value="" disabled hidden selected>Especialidade</option>
         @foreach($especialidades as $esp)
         <option @if($esp == $espSelecionada) {{ 'selected' }} @endif>{{ $esp }}</option>
@@ -24,9 +24,9 @@
       </select>
 
       @if($espSelecionada != null)
-      <select name="medicos" onchange="document.querySelector('form').submit()">
+      <select name="exameMedicos" onchange="document.querySelector('form').submit()">
         <option value="" disabled hidden selected>Selecione o médico</option>
-        @foreach($medicos as $med)
+        @foreach($exameMedico as $med)
         <option @if($med->id == $medSelecionado) {{ 'selected' }} @endif value="{{ $med->id }}" >{{ $med->nome }}</option>
         @endforeach
       </select>
@@ -52,12 +52,11 @@
       @endif
 
       @if($horaSelecionada != null)
-      <button type="submit" onclick="document.querySelector('form').method='post'">Enviar</button>
-      @endif
+      <button type="submit" onclick="document.querySelector('form').method.'post'">Enviar</button>
+     @endif
       @csrf
     </form>
     
-
     
 
   </div>

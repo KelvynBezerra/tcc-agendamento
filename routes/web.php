@@ -12,10 +12,13 @@ Route::get('/cadastro',[PacienteController::class, 'cadastroView']);
 Route::get('/horario',[PacienteController::class, 'horarioView']);
 Route::get('/agendamento',[PacienteController::class, 'agendamentoView']);
 Route::get('/homeCliente', [PacienteController::class, 'homeCliente']);
+Route::get('/exames', [PacienteController::class, 'exameView']);
 
 Route::post('/login',[PacienteController::class, 'login']);
 Route::post('/cadastro',[PacienteController::class, 'cadastrar']);
 Route::post('/horario',[PacienteController::class, 'agendar']);
+Route::post('/exames', [PacienteController::class, 'exameView']);
+
 
 
 
