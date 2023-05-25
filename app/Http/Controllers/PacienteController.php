@@ -25,16 +25,16 @@ class PacienteController extends Controller
         $datas = collect([]);
         $horarios = collect([]);
 
-        if($espSelecionada != null){
+        if ($espSelecionada != null) {
             $medicos = Medico::where('especialidade', 'like', $espSelecionada)->get();
         }
-        if($medSelecionado != null ){
+        if ($medSelecionado != null) {
             $datas = $this->obterDatasProximasQuatroSemanas();
         }
-        if($diaSelecionado != null){
-            $horarios = $this-> obterHorarios();
+        if ($diaSelecionado != null) {
+            $horarios = $this->obterHorarios();
         }
-        
+
         return view('agendamento-horario', [
             'especialidades' => $especialidades,
             'medicos' => $medicos,
@@ -46,10 +46,11 @@ class PacienteController extends Controller
             'horaSelecionada' => $horaSelecionada,
         ]);
     }
-    
-    public function exameView(Request $form){
 
-$exameEspecialidades = Medico::select('especialidade')->distinct()->get()->pluck('especialidade');
+    public function exameView(Request $form)
+    {
+
+        $exameEspecialidades = Medico::select('especialidade')->distinct()->get()->pluck('especialidade');
         $exameEspSelecionada = $form->input('especialidades');
         $exameMedSelecionado = $form->input('medicos');
         $exameDiaSelecionado = $form->input('data');
@@ -59,16 +60,16 @@ $exameEspecialidades = Medico::select('especialidade')->distinct()->get()->pluck
         $exameDatas = collect([]);
         $exameHorarios = collect([]);
 
-        if($exameEspSelecionada != null){
+        if ($exameEspSelecionada != null) {
             $exameMedicos = Medico::where('especialidade', 'like', $exameEspSelecionada)->get();
         }
-        if($exameMedSelecionado != null ){
+        if ($exameMedSelecionado != null) {
             $exameDatas = $this->obterDatasProximasQuatroSemanas();
         }
-        if($exameDiaSelecionado != null){
-            $exameHorarios = $this-> obterHorarios();
+        if ($exameDiaSelecionado != null) {
+            $exameHorarios = $this->obterHorarios();
         }
-        
+
         return view('agendamento-exames', [
             'especialidades' => $exameEspecialidades,
             'medicos' => $exameMedicos,
@@ -82,11 +83,12 @@ $exameEspecialidades = Medico::select('especialidade')->distinct()->get()->pluck
         return view('agendamento-exames');
     }
 
-    function examinar(Request $request){
+    function examinar(Request $request)
+    {
         $exameMedico = $request->input('exameMedicos');
         $exameData = $request->input('data');
         $exameHora = $request->input('horarios');
-        
+
 
         $exameConsulta = new Consulta();
         $exameConsulta->ativa = 1;
@@ -96,15 +98,16 @@ $exameEspecialidades = Medico::select('especialidade')->distinct()->get()->pluck
 
         $exameConsulta->id_paciente = session()->get("usuario")->id;
         $exameConsulta->save();
-        
+
         return redirect('/homeCliente');
     }
 
-    function agendar(Request $request){
+    function agendar(Request $request)
+    {
         $medico = $request->input('medicos');
         $data = $request->input('data');
         $hora = $request->input('horarios');
-        
+
 
         $consulta = new Consulta();
         $consulta->ativa = 1;
@@ -114,23 +117,22 @@ $exameEspecialidades = Medico::select('especialidade')->distinct()->get()->pluck
 
         $consulta->id_paciente = session()->get("usuario")->id;
         $consulta->save();
-        
-        return redirect('/homeCliente');
 
+        return redirect('/homeCliente');
     }
 
     function obterDatasProximasQuatroSemanas()
     {
         $datas = [];
-    
+
         // Obtém a data atual
         $dataAtual = now();
-    
+
         // Itera pelas próximas 4 semanas
         for ($i = 0; $i < 28; $i++) {
             // Adiciona a data atual mais o número de semanas ao iterador
             $data = $dataAtual->addDay(1);
-    
+
             // Itera pelos dias da semana de segunda a sexta-feira (1 a 5)
             for ($dia = 1; $dia <= 5; $dia++) {
                 // Verifica se o dia atual é uma segunda a sexta-feira
@@ -140,11 +142,12 @@ $exameEspecialidades = Medico::select('especialidade')->distinct()->get()->pluck
                 }
             }
         }
-    
-        return collect($datas); 
+
+        return collect($datas);
     }
 
-    public function obterHorarios(){
+    public function obterHorarios()
+    {
         $horarios = [
             '08:00', '08:30', '09:00',
             '09:30', '10:00', '10:30',
@@ -154,9 +157,8 @@ $exameEspecialidades = Medico::select('especialidade')->distinct()->get()->pluck
             '17:00', '17:30', '18:00',
         ];
         return collect($horarios);
-
     }
-    
+
     public function agendamentoView()
     {
         return view('agendamento');
@@ -172,60 +174,59 @@ $exameEspecialidades = Medico::select('especialidade')->distinct()->get()->pluck
         return view('cadastro');
     }
 
-   
 
 
 
-    
-    
+
+
+
 
     public function cadastrar(Request $request)
     {
-        $nome=$request->input('nome');
-        $cpf=$request->input('cpf');
-        $senha=$request->input('senha');
-        $email=$request->input('email');
-        $cep=$request->input('$cep');
-        $pais=$request->input('$pais');
-        $uf=$request->input('$uf');
-        $cidade=$request->input('$cidade');
-        $bairro=$request->input('$bairro');
-        $logradouro=$request->input('$logradouro');
-        $numero=$request->input('$numero');
-        $complemento=$request->input('$complemento');
-        $email=$request->input('$email');
-        $celular_1=$request->input('$celular_1');
-        $celular_2=$request->input('$celular_2');
+        $nome = $request->input('nome');
+        $cpf = $request->input('cpf');
+        $senha = $request->input('senha');
+        $email = $request->input('email');
+        $cep = $request->input('$cep');
+        $pais = $request->input('$pais');
+        $uf = $request->input('$uf');
+        $cidade = $request->input('$cidade');
+        $bairro = $request->input('$bairro');
+        $logradouro = $request->input('$logradouro');
+        $numero = $request->input('$numero');
+        $complemento = $request->input('$complemento');
+        $email = $request->input('$email');
+        $celular_1 = $request->input('$celular_1');
+        $celular_2 = $request->input('$celular_2');
 
         $paciente = new Paciente();
         $paciente->nome = $nome;
         $paciente->cpf = $cpf;
-        $paciente->senha=$senha;
-        $paciente->cep=$cep;
-        $paciente->pais=$pais;
-        $paciente->uf=$uf;
-        $paciente->cidade=$cidade;
-        $paciente->bairro=$bairro;
-        $paciente->logradouro=$logradouro;
-        $paciente->numero=$numero;
-        $paciente->complemento=$complemento;
-        $paciente->email=$email;
-        $paciente->celular_1=$celular_1;
-        $paciente->celular_2=$celular_2;
+        $paciente->senha = $senha;
+        $paciente->cep = $cep;
+        $paciente->pais = $pais;
+        $paciente->uf = $uf;
+        $paciente->cidade = $cidade;
+        $paciente->bairro = $bairro;
+        $paciente->logradouro = $logradouro;
+        $paciente->numero = $numero;
+        $paciente->complemento = $complemento;
+        $paciente->email = $email;
+        $paciente->celular_1 = $celular_1;
+        $paciente->celular_2 = $celular_2;
 
         $paciente->save();
 
         return redirect('/login');
-        
     }
 
     public function login(Request $request)
     {
-        $cpf=$request->input('cpf');
-        $senha=$request->input('senha');
+        $cpf = $request->input('cpf');
+        $senha = $request->input('senha');
         $usuario = Paciente::where('cpf', '=', $cpf)->where('senha', '=', $senha)->first();
 
-        if($usuario==null){
+        if ($usuario == null) {
             exit('Usuário não encontrado, confira o login e a senha e tente novamente');
         }
 
@@ -235,14 +236,14 @@ $exameEspecialidades = Medico::select('especialidade')->distinct()->get()->pluck
 
     public function homeCliente()
     {
-    $cards = Endereco::all();
+        $id_paciente = session()->get("usuario")->id;
+        $consultas = Consulta::where('id_paciente', '=', $id_paciente)->where('ativa', '=', '1')->get();
+        
+        return view('home-cliente', ['consultas' => $consultas]);
+    }
 
-    return view('home-cliente', ['cards' => $cards]);
-}
 
-
-public function endereco(){
-   
-}
-
+    public function endereco()
+    {
+    }
 }

@@ -14,7 +14,9 @@
   <div class="flex-row space-40 content-space-between">
     
     <form class="cadastrarConsulta space-30 content-vcenter" >
-      <span class="material-icons" style="margin-right: 10px;">vaccines</span>
+      <span class="material-symbols-outlined">
+pill
+</span>
       
       <select name="especialidades" id="especialidades" onchange="document.querySelector('form').submit()">
         <option value="" disabled hidden selected>Especialidade</option>
@@ -24,6 +26,27 @@
       </select>
 
       @if($espSelecionada != null)
+      @if($espSelecionada == 'Cardiologista')
+      <span class="material-symbols-outlined">
+ecg_heart
+</span>
+      @endif
+      @if($espSelecionada == 'Neurologista')
+      <span class="material-symbols-outlined">
+neurology
+</span>
+      @endif
+      @if($espSelecionada == 'Psicologo')
+      <span class="material-symbols-outlined">
+psychology
+</span>
+      @endif
+      @if($espSelecionada == 'Ortopedista')
+      <span class="material-symbols-outlined">
+rheumatology
+</span>
+      @endif
+      
       <select name="medicos" onchange="document.querySelector('form').submit()">
         <option value="" disabled hidden selected>Selecione o médico</option>
         @foreach($medicos as $med)
@@ -32,8 +55,12 @@
       </select>
       @endif
       
-      <span class="material-icons" onclick="">calendar_month</span>
+      
+      
       @if($medSelecionado != null)
+      <span class="material-symbols-outlined">
+free_cancellation
+</span>
       <select name="data" id="data" onchange="document.querySelector('form').submit()">
         <option value="">Selecione a data</option>
         @foreach($datas as $date)
@@ -43,6 +70,9 @@
       @endif
 
       @if($diaSelecionado != null)
+      <span class="material-symbols-outlined">
+pace
+</span>
       <select name="horarios" onchange="document.querySelector('form').submit()">
         <option value="">Selecione um horario</option>
         @foreach($horarios as $hora)
@@ -52,7 +82,8 @@
       @endif
 
       @if($horaSelecionada != null)
-      <button type="submit" onclick="document.querySelector('form').method='post'">Enviar</button>
+      <br><br>
+      <button type="submit" class="botaoCadastro" style="background-color: rgb(234, 250, 253);" onclick="document.querySelector('form').method='post'">Enviar</button>
       @endif
       @csrf
     </form>

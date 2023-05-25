@@ -22,4 +22,6 @@ class Medico extends Model
     {
         return $this->hasOneThrough(Paciente::class, Consulta::class);
     }
+
+    
 }

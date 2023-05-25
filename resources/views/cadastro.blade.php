@@ -34,7 +34,7 @@
                 </tr>
                 <tr>
                     <td><label for="cpf">CPF</label></td>
-                    <td><input type="text" name="cpf" id="cpf" placeholder="Informe seu cpf" required></td>
+                    <td><input type="text" name="cpf" id="cpf" placeholder="Informe seu CPF" required></td>
                 </tr>
                 <tr>
                     <td><label for="email">E-mail</label></td>

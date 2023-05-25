@@ -9,7 +9,7 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('css/flex-style.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/flex.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <script src="/js/jquery.js"></script>
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -37,19 +37,27 @@
         <a href=""></a>
         <a href="/homeCliente">
 
-          <span class="material-icons blue">query_stats</span>
+          <span class="material-symbols-outlined">
+medical_information
+</span>
           <span class="selected-text ">CONSULTAS</span>
 
         </a>
 
-        <a href="#">
-          <span class="material-icons">monitor_heart</span> <span class="text-menu">EXAMES</span>
+        <a href="/exames">
+          <span class="material-symbols-outlined">
+prescriptions
+</span> <span class="text-menu">EXAMES</span>
         </a>
         <a href="#">
-          <span class="material-icons">personal_injury</span> <span class="text-menu">PACIENTES</span>
+          <span class="material-symbols-outlined">
+personal_injury
+</span> <span class="text-menu">PACIENTES</span>
         </a>
         <a href="#">
-          <span class="material-icons">vaccines</span> <span class="text-menu">MÉDICOS</span>
+          <span class="material-symbols-outlined">
+stethoscope
+</span> <span class="text-menu">MÉDICOS</span>
         </a>
       </div>
     </div>
@@ -72,7 +80,7 @@
   </script>
 
   <br>
-  <footer class="flex-row content-center space-30 box" style="position:absolute; bottom: 0; width: 100%;">
+  <footer class="flex-row content-center space-30 box" style="position:fixed; bottom: 0; width: 100%;">
     <span>Etec Antonio Devisate</span>
   </footer>
   
