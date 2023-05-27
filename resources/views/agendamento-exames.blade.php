@@ -18,8 +18,8 @@
       
       <select name="exameEspecialidades" id="especialidades" onchange="document.querySelector('form').submit()">
         <option value="" disabled hidden selected>Especialidade</option>
-        @foreach($especialidades as $esp)
-        <option @if($esp == $espSelecionada) {{ 'selected' }} @endif>{{ $esp }}</option>
+        @foreach($exames as $exm)
+        <option @if($exm == $exameSelecionado) {{ 'selected' }} @endif>{{ $exm }}</option>
         @endforeach
       </select>
 
@@ -31,16 +31,7 @@
         @endforeach
       </select>
       @endif
-      
-      <span class="material-icons" onclick="">calendar_month</span>
-      @if($medSelecionado != null)
-      <select name="data" id="data" onchange="document.querySelector('form').submit()">
-        <option value="">Selecione a data</option>
-        @foreach($datas as $date)
-        <option @if($date == $diaSelecionado) {{ 'selected' }} @endif >{{ $date }}</option>
-        @endforeach
-      </select>
-      @endif
+    
 
       @if($diaSelecionado != null)
       <select name="horarios" onchange="document.querySelector('form').submit()">
