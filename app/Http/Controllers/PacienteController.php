@@ -16,7 +16,7 @@ class PacienteController extends Controller
 {
     public function horarioView(Request $form)
     {
-        $especialidades = Medico::select('especialidade')->distinct()->get()->pluck('especialidade')->where('tipoagendamento', '=', '1');
+        $especialidades = Medico::select('especialidade')->distinct()->get()->pluck('especialidade');
         $espSelecionada = $form->input('especialidades');
         $medSelecionado = $form->input('medicos');
         $diaSelecionado = $form->input('data');
@@ -62,7 +62,7 @@ class PacienteController extends Controller
         $exameHorarios = collect([]);
 
         if ($exameSelecionado != null) {
-            $exameSelecionado = Consulta::where('nome', 'like', $exameSelecionado)->get();
+            $exameDatas = $this->obterDatasProximasQuatroSemanas();
         }
         
         if ($exameDiaSelecionado != null) {
