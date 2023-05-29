@@ -17,13 +17,13 @@
       <span class="material-icons" style="margin-right: 10px;">vaccines</span>
       
       <select name="exameEspecialidades" id="especialidades" onchange="document.querySelector('form').submit()">
-        <option value="" disabled hidden selected>Especialidade</option>
+        <option value="" disabled hidden selected>Exames</option>
         @foreach($exames as $exm)
         <option @if($exm == $exameSelecionado) {{ 'selected' }} @endif>{{ $exm }}</option>
         @endforeach
       </select>
 
-      @if($espSelecionada != null)
+      @if($exameSelecionado != null)
       <select name="exameMedicos" onchange="document.querySelector('form').submit()">
         <option value="" disabled hidden selected>Selecione o médico</option>
         @foreach($exameMedico as $med)
