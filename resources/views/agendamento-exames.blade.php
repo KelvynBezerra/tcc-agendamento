@@ -25,9 +25,9 @@
 
      @if($exameSelecionado != null)
       <span class="material-symbols-outlined">
-free_cancellation
-</span>
-      <select name="data" id="data" onchange="document.querySelector('form').submit()">
+        free_cancellation
+      </span>
+      <select name="exameData" id="data" onchange="document.querySelector('form').submit()">
         <option value="">Selecione a data</option>
         @foreach($exameDatas as $exmDate)
         <option @if($exmDate == $exameDiaSelecionado) {{ 'selected' }} @endif >{{ $exmDate }}</option>
@@ -40,13 +40,14 @@ free_cancellation
       <select name="horarios" onchange="document.querySelector('form').submit()">
         <option value="">Selecione um horario</option>
         @foreach($exameHorarios as $exmHora)
-        <option value="{{ $exmHora }}" @if($hora == $exameHoraSelecionada) {{'selected'}} @endif> {{$exmHora}}</option>
+        <option value="{{ $exmHora }}" @if($exmHora == $exameHoraSelecionada) {{'selected'}} @endif> {{$exmHora}}</option>
         @endforeach
       </select>
       @endif
 
       @if($exameHoraSelecionada != null)
-      <button type="submit" onclick="document.querySelector('form').method.'post'">Enviar</button>
+      
+      <button type="submit" onclick="document.querySelector('form').method='post'">Enviar</button>
      @endif
       @csrf
     </form>

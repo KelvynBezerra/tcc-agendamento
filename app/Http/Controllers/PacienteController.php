@@ -50,11 +50,10 @@ class PacienteController extends Controller
 
     public function exameView(Request $form)
     {
-
         $exames = Exame::select('nome')->distinct()->get()->pluck('nome');
         $exameSelecionado = $form->input('exameSelecionado');
        
-        $exameDiaSelecionado = $form->input('data');
+        $exameDiaSelecionado = $form->input('exameData');
         $exameHoraSelecionada = $form->input('horarios');
 
         
@@ -65,36 +64,37 @@ class PacienteController extends Controller
             $exameDatas = $this->obterDatasProximasQuatroSemanas();
         }
         
-        if ($exameDiaSelecionado != null) {
+        if ($exameDatas != null) {
             $exameHorarios = $this->obterHorarios();
         }
 
         return view('agendamento-exames', [
             'exames' => $exames,
-            'datas' => $exameDatas,
-            'horarios' => $exameHorarios,
+            'exameDatas' => $exameDatas,
+            'exameHorarios' => $exameHorarios,
             'exameSelecionado' => $exameSelecionado,
-            'diaSelecionado' => $exameDiaSelecionado,
-            'horaSelecionada' => $exameHoraSelecionada,
+            'exameDiaSelecionado' => $exameDiaSelecionado,
+            'exameHoraSelecionada' => $exameHoraSelecionada,
         ]);
         return view('agendamento-exames');
     }
 
     function examinar(Request $request)
     {
-        $exameMedico = $request->input('exameMedicos');
-        $exameData = $request->input('data');
+        $exames = $request->input('exameSelecionado');
+        $exameData = $request->input('exameData');
         $exameHora = $request->input('horarios');
 
 
         $exameConsulta = new Consulta();
+        $exameConsulta->id_exame = $exames;
         $exameConsulta->ativa = 1;
         $exameConsulta->data_hora = "$exameData $exameHora";
-        $exameConsulta->id_medico = $exameMedico;
         $exameConsulta->id_tipoAgendamento = 2;
 
         $exameConsulta->id_paciente = session()->get("usuario")->id;
         $exameConsulta->save();
+
 
         return redirect('/homeCliente');
     }
