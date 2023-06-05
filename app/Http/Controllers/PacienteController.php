@@ -87,7 +87,7 @@ class PacienteController extends Controller
 
 
         $exameConsulta = new Consulta();
-        $exameConsulta->id_exame = $exames;
+        $exameConsulta->id_exames = $exames;
         $exameConsulta->ativa = 1;
         $exameConsulta->data_hora = "$exameData $exameHora";
         $exameConsulta->id_tipoAgendamento = 2;
