@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Consulta;
 use App\models\Endereco;
+use App\Models\Exame;
 use App\Models\Login;
 use App\Models\Medico;
 use App\Models\Paciente;
@@ -49,55 +50,51 @@ class PacienteController extends Controller
 
     public function exameView(Request $form)
     {
-
-        $exameEspecialidades = Medico::select('especialidade')->distinct()->get()->pluck('especialidade');
-        $exameEspSelecionada = $form->input('especialidades');
-        $exameMedSelecionado = $form->input('medicos');
-        $exameDiaSelecionado = $form->input('data');
+        $exames = Exame::select('nome')->distinct()->get()->pluck('nome');
+        $exameSelecionado = $form->input('exameSelecionado');
+       
+        $exameDiaSelecionado = $form->input('exameData');
         $exameHoraSelecionada = $form->input('horarios');
 
-        $exameMedicos = collect([]);
+        
         $exameDatas = collect([]);
         $exameHorarios = collect([]);
 
-        if ($exameEspSelecionada != null) {
-            $exameMedicos = Medico::where('especialidade', 'like', $exameEspSelecionada)->get();
-        }
-        if ($exameMedSelecionado != null) {
+        if ($exameSelecionado != null) {
             $exameDatas = $this->obterDatasProximasQuatroSemanas();
         }
-        if ($exameDiaSelecionado != null) {
+        
+        if ($exameDatas != null) {
             $exameHorarios = $this->obterHorarios();
         }
 
         return view('agendamento-exames', [
-            'especialidades' => $exameEspecialidades,
-            'medicos' => $exameMedicos,
-            'datas' => $exameDatas,
-            'horarios' => $exameHorarios,
-            'espSelecionada' => $exameEspSelecionada,
-            'diaSelecionado' => $exameDiaSelecionado,
-            'medSelecionado' => $exameMedSelecionado,
-            'horaSelecionada' => $exameHoraSelecionada,
+            'exames' => $exames,
+            'exameDatas' => $exameDatas,
+            'exameHorarios' => $exameHorarios,
+            'exameSelecionado' => $exameSelecionado,
+            'exameDiaSelecionado' => $exameDiaSelecionado,
+            'exameHoraSelecionada' => $exameHoraSelecionada,
         ]);
         return view('agendamento-exames');
     }
 
     function examinar(Request $request)
     {
-        $exameMedico = $request->input('exameMedicos');
-        $exameData = $request->input('data');
+        $exames = $request->input('exameSelecionado');
+        $exameData = $request->input('exameData');
         $exameHora = $request->input('horarios');
 
 
         $exameConsulta = new Consulta();
+        $exameConsulta->id_exame = $exames;
         $exameConsulta->ativa = 1;
         $exameConsulta->data_hora = "$exameData $exameHora";
-        $exameConsulta->id_medico = $exameMedico;
         $exameConsulta->id_tipoAgendamento = 2;
 
         $exameConsulta->id_paciente = session()->get("usuario")->id;
         $exameConsulta->save();
+
 
         return redirect('/homeCliente');
     }
