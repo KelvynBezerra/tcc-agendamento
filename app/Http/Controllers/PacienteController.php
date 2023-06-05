@@ -235,7 +235,7 @@ class PacienteController extends Controller
     {
         $id_paciente = session()->get("usuario")->id;
         $consultas = Consulta::where('id_paciente', '=', $id_paciente)->where('ativa', '=', '1')->get();
-        
+
         return view('home-cliente', ['consultas' => $consultas]);
     }
 

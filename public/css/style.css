@@ -8,6 +8,7 @@
 
 }
 
+
 * {
   font-family: "montserrat";
 }
@@ -191,10 +192,13 @@ button {
   text-align: start;
 }
 
+
+
 .tabelaCadastro {
   border-radius: 50px;
   border-collapse: collapse;
   border-bottom: none;
+
 }
 
 td {
@@ -208,22 +212,13 @@ td>input {
   font-style: italic;
 }
 
-.bodyCadastro {
-  background-image: url(/imagens/medico.png);
-  background-repeat: no-repeat;
-  background-size: 100%;
-
-
-}
 
 .fundo {
-  height: 100%;
   background-color: white;
-  width: 30%;
-  display: flex;
   align-items: center;
   justify-content: center;
-
+  max-width: 60vw;
+  max-height: 10vh;
 }
 
 .logo {
@@ -249,4 +244,41 @@ td>input {
 
 .btncadastro:hover {
   background-color: white;
+}
+
+.quebraImagem {
+  display: flex;
+  width: 100%;
+}
+
+.fundoCadastro {
+  width: 1000px;
+  height: 100vh;
+  background-image: url(/imagens/medico.png);
+  background-repeat: no-repeat;
+}
+
+
+
+@media only screen and (max-width: 600) {
+  .quebraImagem {
+    display: block;
+  }
+
+  .imagemLogin {
+    min-width: 0vw;
+    min-height: 100vh;
+
+  }
+
+  .tabelaCadastro {
+    min-width: 100vw;
+    min-height: 100vh;
+  }
+
+  .fundo {
+    min-width: 100vw;
+    min-height: 100vh;
+
+  }
 }
