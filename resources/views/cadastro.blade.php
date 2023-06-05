@@ -9,7 +9,7 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('css/flex-style.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/flex.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
-
+    
   <script src="/js/jquery.js"></script>
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

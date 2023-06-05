@@ -16,33 +16,38 @@
 
 </head>
 <body class="bodyCadastro">
-    
-    <img src="/imagens/logo-teste.jpg" class="logo" alt="">
-    <div class="fundo content-center">
+    <div class="quebraImagem">
+  
+    <div class="fundoCadastro" >
 
-        <form action="/login" method="post">
-            
-            <table class="tabelaCadastro">
-                <tr>
-                    <td><label for="cpf">CPF</label></td>
-                    <td><input type="text" name="cpf" id="cpf" placeholder="CPF para login" required></td>
-                </tr>
-                <tr>
-                    <td><label for="senha">Senha</label></td>
-                    <td><input type="password" name="senha" id="senha" placeholder="Senha de acesso" required></td>
-                </tr>
+        <div class="fundo content-center">
 
-
-                <tr class="btncadastro">
-                    <td><button type="submit" class="botaoCadastro">Entrar</button></td>
-                    <td><a href="/cadastro" style="color: black; font-size: 13px; padding: none;">Não possui cadastro? <span style="color: red; text-decoration: underline;">Clique Aqui</span></a></td>
-                </tr>
-            </table>
-            @csrf
-        </form>
+            <form action="/login" method="post">
+                
+                <table class="tabelaCadastro">
+                    <tr>
+                        <td><label for="cpf">CPF</label></td>
+                        <td><input type="text" name="cpf" id="cpf" placeholder="CPF para login" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="senha">Senha</label></td>
+                        <td><input type="password" name="senha" id="senha" placeholder="Senha de acesso" required></td>
+                    </tr>
 
 
-</div>
+                    <tr class="btncadastro">
+                        <td><button type="submit" class="botaoCadastro">Entrar</button></td>
+                        <td><a href="/cadastro" style="color: black; font-size: 13px; padding: none;">Não possui cadastro? <span style="color: red; text-decoration: underline;">Clique Aqui</span></a></td>
+                    </tr>
+                </table>
+                @csrf
+            </form>
+
+
+        </div>
+        </div>
+        
+    </div>
 
 </body>
 </html>
