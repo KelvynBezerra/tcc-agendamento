@@ -19,10 +19,10 @@
       <select name="exameSelecionado" id="especialidades" onchange="document.querySelector('form').submit()">
         <option value="" disabled hidden selected>Exames</option>
         @foreach($exames as $exm)
-        <option @if($exm == $exameSelecionado) {{ 'selected' }} @endif value="{{ $exm->id }}">{{ $exm->nome }}</option>
+        <option @if($exm == $exameSelecionado) {{ 'selected' }} @endif value='{{ $exm }}'>{{ $exm }}</option>
         @endforeach
       </select>
-
+      
      @if($exameSelecionado != null)
       <span class="material-symbols-outlined">
         free_cancellation

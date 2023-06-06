@@ -47,6 +47,9 @@ class PacienteController extends Controller
             'horaSelecionada' => $horaSelecionada,
         ]);
     }
+    public function destroy(){
+        
+    }
 
     public function exameView(Request $form)
     {
@@ -56,7 +59,7 @@ class PacienteController extends Controller
         $exameDiaSelecionado = $form->input('exameData');
         $exameHoraSelecionada = $form->input('horarios');
 
-        
+        //$exames = collect([]);
         $exameDatas = collect([]);
         $exameHorarios = collect([]);
 
@@ -69,7 +72,8 @@ class PacienteController extends Controller
         }
 
         return view('agendamento-exames', [
-            'exames' => $exames,
+           'exames' => $exames,
+           // 'exames' => $exames,
             'exameDatas' => $exameDatas,
             'exameHorarios' => $exameHorarios,
             'exameSelecionado' => $exameSelecionado,
@@ -87,12 +91,13 @@ class PacienteController extends Controller
 
 
         $exameConsulta = new Consulta();
-        $exameConsulta->id_exames = $exames;
+        $exameConsulta->exame = $exames;
         $exameConsulta->ativa = 1;
         $exameConsulta->data_hora = "$exameData $exameHora";
         $exameConsulta->id_tipoAgendamento = 2;
 
         $exameConsulta->id_paciente = session()->get("usuario")->id;
+        
         $exameConsulta->save();
 
 
@@ -113,6 +118,7 @@ class PacienteController extends Controller
         $consulta->id_tipoAgendamento = 1;
 
         $consulta->id_paciente = session()->get("usuario")->id;
+        
         $consulta->save();
 
         return redirect('/homeCliente');

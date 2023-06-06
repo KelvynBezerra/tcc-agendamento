@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Exame extends Model
 {
@@ -13,8 +13,8 @@ class Exame extends Model
     protected $table = "exames";
     public $timestamps = false;
 
-    public function consultas(): BelongsTo{
-        return $this->belongsTo(Consulta::class);
+    public function consultas(): HasMany{
+        return $this->hasMany(Consulta::class);
     }
     
 }

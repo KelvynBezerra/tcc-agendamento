@@ -26,10 +26,18 @@
             <span class="material-icons">
               vaccines
             </span>
-            <span style="font-size: 20px;">{{$consulta->medico->especialidade }}</span>
-            <div class="break">{{ $consulta->medico->nome }}</div>
+            <span style="font-size: 20px;">{{$consulta?->medico?->especialidade }}</span>
+            <div class="break">{{ $consulta?->medico?->nome }}</div>
+          
+            <form action="{{route('consultas.destroy', $consulta)}}" method="post">
+              @csrf
+              @method('DELETE')
+            <button type="sub">Excluir consulta</button>
+          </form>
+
           </div>
           <div class="break"></div> <br>
+
           <!-- <div class="flex-row space-10">
             <span class="material-icons">
               local_pharmacy
@@ -38,7 +46,9 @@
             <div class="break"></div>
           </div> -->
         </div>
+
         @endforeach
+        
         
 
 
