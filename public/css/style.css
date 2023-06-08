@@ -217,14 +217,17 @@ td>input {
   background-color: white;
   align-items: center;
   justify-content: center;
-  max-width: 60vw;
-  max-height: 10vh;
+  max-width: 550px;
+  min-width: 550px;
+  height: 100%;
+
 }
 
 .logo {
   width: 200px;
   height: 100px;
   position: fixed;
+  margin-left: -300px;
 
 }
 
@@ -252,33 +255,17 @@ td>input {
 }
 
 .fundoCadastro {
-  width: 1000px;
-  height: 100vh;
-  background-image: url(/imagens/medico.png);
-  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  top: 40%;
+  transform: translateY(-50%);
+
+
 }
 
-
-
-@media only screen and (max-width: 600) {
-  .quebraImagem {
-    display: block;
-  }
-
-  .imagemLogin {
-    min-width: 0vw;
-    min-height: 100vh;
-
-  }
-
-  .tabelaCadastro {
-    min-width: 100vw;
-    min-height: 100vh;
-  }
-
-  .fundo {
-    min-width: 100vw;
-    min-height: 100vh;
-
-  }
+.bodyCadastro {
+  background-image: url(../imagens/medico.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }

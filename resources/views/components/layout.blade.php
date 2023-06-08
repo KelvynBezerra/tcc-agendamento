@@ -37,8 +37,15 @@
     <div class="menu ">
 
       <div class="items" id="items">
-        <a href=""></a>
         <a href="/homeCliente">
+
+          <span class="material-symbols-outlined">
+home
+</span>
+          <span class="selected-text ">HOME</span>
+
+        </a>
+        <a href="/horario">
 
           <span class="material-symbols-outlined">
 medical_information
@@ -46,26 +53,19 @@ medical_information
           <span class="selected-text ">CONSULTAS</span>
 
         </a>
+        
 
         <a href="/exames">
           <span class="material-symbols-outlined">
 prescriptions
 </span> <span class="text-menu">EXAMES</span>
         </a>
-        <a href="#">
-          <span class="material-symbols-outlined">
-personal_injury
-</span> <span class="text-menu">PACIENTES</span>
-        </a>
-        <a href="#">
-          <span class="material-symbols-outlined">
-stethoscope
-</span> <span class="text-menu">MÉDICOS</span>
-        </a>
+        
       </div>
     </div>
 
     {{$slot}}
+    <hr style="margin: 50px">
 <script>
     var state = false;
     function expand() {

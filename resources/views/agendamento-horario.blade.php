@@ -50,7 +50,7 @@ rheumatology
       <select name="medicos" onchange="document.querySelector('form').submit()">
         <option value="" disabled hidden selected>Selecione o médico</option>
         @foreach($medicos as $med)
-        <option @if($med->id == $medSelecionado) {{ 'selected' }} @endif value="{{ $med->id }}" >{{ $med->nome }}</option>
+        <option @if($med->id == $medSelecionado) {{ 'selected' }} @endif value="{{ $med->id }}" >  {{ $med->nome }}</option>
         @endforeach
       </select>
       @endif
