@@ -47,8 +47,9 @@ class PacienteController extends Controller
             'horaSelecionada' => $horaSelecionada,
         ]);
     }
-    public function destroy(){
-        
+    public function delete($exclusao){
+        $excluido = Consulta::where('id', '=', $exclusao )->delete();
+        return redirect()->route('/homeCliente')->with('success', 'Consulta excluida com sucesso! :D');
     }
 
     public function exameView(Request $form)
