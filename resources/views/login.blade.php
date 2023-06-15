@@ -18,7 +18,7 @@
 <body class="bodyCadastro">
     
   <div class="fundo content-center">
-    <img src="/imagens/medico.png" class="logo" alt="">
+    <img src="/imagens/logo-teste.png" class="logo" alt="">
     <div class="fundoCadastro" >
 
         

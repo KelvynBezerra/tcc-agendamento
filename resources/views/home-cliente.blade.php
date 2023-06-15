@@ -4,7 +4,10 @@
     <span></span>
     <span></span>
     <span></span>
+    <a href="exames"><div class="button primary " style="margin-top: 40px; margin-right: -175px"> NOVO EXAME</div></a>
         <a href="horario"><div class="button primary " style="margin-top: 40px;"> NOVA CONSULTA</div></a>
+        
+
     <span></span>
 
 
@@ -13,16 +16,15 @@
     <div class="agrupamentoCards content-center">
       <div class=" flex-row content-center gap-40">
       @foreach ($consultas as $consulta)
-      @if($consulta->id_tipoAgendamento="1"){
-      <div class="cards">
-          <h1>{{ $consulta->id }}</h1>
-          <div class="flex-row space-10">
-            <span class="material-icons">
-              schedule
-            </span>
-            <span>{{ strftime('%d/%m/%Y %H:%M', strtotime($consulta->data_hora)) }}</span>
-          </div>
-
+        @if($consulta->id_tipoAgendamento="1")
+          <div class="cards">
+         
+            <div class="flex-row space-10">
+              <span class="material-icons">
+                schedule
+              </span>
+              <span>{{ strftime('%d/%m/%Y %H:%M', strtotime($consulta->data_hora)) }}</span>
+            </div>
           <div class="flex-row space-10">
             <span class="material-icons">
               vaccines
@@ -38,19 +40,14 @@
           </div>
           <div class="break"></div> <br>
 
-          <!-- <div class="flex-row space-10">
-            <span class="material-icons">
-              local_pharmacy
-            </span>
-            <span style="font-size: 20px;"></span>
-            <div class="break"></div>
-          </div> -->
         </div>
-        }
+      </div>
+    </div>
+    
 
         <!-- EXAMES-->
-        {{-- @else{ --}}
-        <!--<div class="agrupamentoCards content-center">
+         @else
+        <div class="agrupamentoCards content-center">
       <div class=" flex-row content-center gap-40">
         <div class="cards">
           <h1>1</h1>
@@ -62,7 +59,7 @@
               prescriptions
             </span>
         </div>
-        -->
+        
         <div class="agrupamentoCards content-center">
       <div class=" flex-row content-center gap-40">
         <div class="cards">
@@ -87,7 +84,6 @@
           
         </div>
         
-        {{-- } --}}
         @endif
         @endforeach
         
