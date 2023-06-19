@@ -18,6 +18,10 @@ Route::post('/cadastro',[PacienteController::class, 'cadastrar']);
 Route::post('/horario',[PacienteController::class, 'agendar']);
 Route::post('/exames', [PacienteController::class, 'examinar']);
 
+Route::get('/cancelar/{id}',[PacienteController::class, 'cancelar']);
+    
+
+
 
 
 

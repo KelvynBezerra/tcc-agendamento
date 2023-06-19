@@ -16,11 +16,12 @@
 
 </head>
 <body class="bodyCadastro">
-    <div class="quebraImagem">
-  
+    
+  <div class="fundo content-center">
+    <img src="/imagens/logo-teste.png" class="logo" alt="">
     <div class="fundoCadastro" >
 
-        <div class="fundo content-center">
+        
 
             <form action="/login" method="post">
                 
@@ -44,7 +45,7 @@
             </form>
 
 
-        </div>
+        
         </div>
         
     </div>

@@ -47,7 +47,7 @@
 
       @if($exameHoraSelecionada != null)
       
-      <button type="submit" onclick="document.querySelector('form').method='post'">Enviar</button>
+      <button type="submit" class="button primary" style="margin-top:-35px;margin-left:700px;" onclick="document.querySelector('form').method='post'">Enviar</button>
      @endif
       @csrf
     </form>

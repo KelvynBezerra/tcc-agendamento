@@ -17,8 +17,9 @@
 </head>
 <body class="bodyCadastro">
     
-    <img src="/imagens/logo-teste.jpg" class="logo" alt="">
-    <div class="fundo content-center">
+    <img src="/imagens/logo-teste.png" class="logo2" alt="">
+    <div class="fundo2 content-center">
+    <div class="fundocadastro">
         
 
         <form action="/cadastro" method="post">
@@ -42,16 +43,18 @@
                 </tr>
                 <tr>
                     <td><label for="telefone">Telefone</label></td>
-                    <td><input type="tel" pattern="([0-9] {2} )[0-9]{5}- [0-9]{4}" name="telefone" id="telefone" placeholder="xx xxxxx-xxxx " required></td>
+                    <td><input type="tel" pattern="([0-9]{2}[0-9]{5}[0-9]{4})" name="telefone" id="telefone" placeholder="xx xxxxx-xxxx " required></td>
                 </tr>
                 <tr class="btncadastro">
                     <td><button type="submit" class="botaoCadastro">Cadastrar</button></td>
                 </tr>
+                @csrf
             </table>
         </form>
 
 
 </div>
+    </div>
 
 </body>
 </html>

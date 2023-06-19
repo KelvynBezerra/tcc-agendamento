@@ -178,10 +178,12 @@ button,
     padding: 5px 20px;
     cursor: pointer;
     transition: 0.25s;
+    width: 200px;
 }
 
 a.button {
     text-decoration: none;
+
 }
 
 .button.primary {

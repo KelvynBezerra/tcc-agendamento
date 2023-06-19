@@ -47,16 +47,18 @@ class PacienteController extends Controller
             'horaSelecionada' => $horaSelecionada,
         ]);
     }
-    public function delete($exclusao){
-        $excluido = Consulta::where('id', '=', $exclusao )->delete();
-        return redirect()->route('/homeCliente')->with('success', 'Consulta excluida com sucesso! :D');
+    public function cancelar($id)
+    {
+        $consulta = Consulta::find($id);
+        $consulta->delete();
+        return redirect('/homeCliente');
     }
 
     public function exameView(Request $form)
     {
         $exames = Exame::select('nome')->distinct()->get()->pluck('nome');
         $exameSelecionado = $form->input('exameSelecionado');
-       
+
         $exameDiaSelecionado = $form->input('exameData');
         $exameHoraSelecionada = $form->input('horarios');
 
@@ -67,14 +69,14 @@ class PacienteController extends Controller
         if ($exameSelecionado != null) {
             $exameDatas = $this->obterDatasProximasQuatroSemanas();
         }
-        
+
         if ($exameDatas != null) {
             $exameHorarios = $this->obterHorarios();
         }
 
         return view('agendamento-exames', [
-           'exames' => $exames,
-           // 'exames' => $exames,
+            'exames' => $exames,
+            // 'exames' => $exames,
             'exameDatas' => $exameDatas,
             'exameHorarios' => $exameHorarios,
             'exameSelecionado' => $exameSelecionado,
@@ -98,7 +100,7 @@ class PacienteController extends Controller
         $exameConsulta->id_tipoAgendamento = 2;
 
         $exameConsulta->id_paciente = session()->get("usuario")->id;
-        
+
         $exameConsulta->save();
 
 
@@ -119,7 +121,7 @@ class PacienteController extends Controller
         $consulta->id_tipoAgendamento = 1;
 
         $consulta->id_paciente = session()->get("usuario")->id;
-        
+
         $consulta->save();
 
         return redirect('/homeCliente');
@@ -191,37 +193,19 @@ class PacienteController extends Controller
         $cpf = $request->input('cpf');
         $senha = $request->input('senha');
         $email = $request->input('email');
-        $cep = $request->input('$cep');
-        $pais = $request->input('$pais');
-        $uf = $request->input('$uf');
-        $cidade = $request->input('$cidade');
-        $bairro = $request->input('$bairro');
-        $logradouro = $request->input('$logradouro');
-        $numero = $request->input('$numero');
-        $complemento = $request->input('$complemento');
-        $email = $request->input('$email');
         $celular_1 = $request->input('$celular_1');
-        $celular_2 = $request->input('$celular_2');
+
 
         $paciente = new Paciente();
         $paciente->nome = $nome;
         $paciente->cpf = $cpf;
         $paciente->senha = $senha;
-        $paciente->cep = $cep;
-        $paciente->pais = $pais;
-        $paciente->uf = $uf;
-        $paciente->cidade = $cidade;
-        $paciente->bairro = $bairro;
-        $paciente->logradouro = $logradouro;
-        $paciente->numero = $numero;
-        $paciente->complemento = $complemento;
         $paciente->email = $email;
         $paciente->celular_1 = $celular_1;
-        $paciente->celular_2 = $celular_2;
 
         $paciente->save();
 
-        return redirect('/login');
+        return redirect('login');
     }
 
     public function login(Request $request)
